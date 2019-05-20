@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/original">
+<body>
+<div id="page" layout:fragment="content">
+    <div class="row text-center">
+        <div class="col-sm-12">
+            <h2>Brendon Dugan</h2>
+            <img class="responsive-img" th:src="@{/img/smiling_small.png}" alt="Brendon Dugan Smiling"/>
+            <h3>Quick Nav</h3>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-6">
+            <h4>External</h4>
+            <ul class="wrapped-list">
+                <li><a href="http://stackexchange.com/users/467572/brendon-dugan">Stack Exchange Network Profile</a></li>
+                <li><a href="https://github.com/brennydoogles">Github Profile</a></li>
+                <li><a href="http://www.dreamincode.net/forums/user/240257-brennydoogles/">Dream.In.Code Profile</a></li>
+                <li><a href="http://www.linkedin.com/in/brendondugan">LinkedIn</a></li>
+                <li><a href="https://brennydoogles.wordpress.com/">Programming Blog</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <h4>Internal</h4>
+            <ul class="wrapped-list">
+                <li><a th:href="@{/about/me}">About Brendon</a></li>
+                <li><a th:href="@{/music}">Brendon's Music</a></li>
+                <li><a th:href="@{/cv}">Brendon's CV</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

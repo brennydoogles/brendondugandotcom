@@ -1,0 +1,119 @@
+//
+// Custom Other
+// --------------------------------------------------
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900);
+
+
+/*
+Main red on Shield: cc2522
+Red from Shield Reflection: c54b49
+*/
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+h1{
+  display: inline-block;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: @container-narrow-width;
+  > hr {
+    margin: 30px 0;
+  }
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+  h1 {
+    font-size: 72px;
+    line-height: 1;
+  }
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 30px 0;
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+.dl-horizontal{
+  dt{
+    white-space: normal;
+  }
+  dd.wrappeddt{
+    line-height: 200%;
+    margin-top: @line-height-base;
+  }
+}
+.bordered-box{
+  border: 1px solid @table-border-color;
+}
+.jumbotron-neutral{
+  &:extend(.jumbotron all);
+  background-color: @body-bg;
+}
+
+.wrapped-list{
+  &:extend(.list-unstyled all);
+  &:extend(.list-inline all);
+  li{
+    background-color: @well-bg;
+    border: 1px solid @well-border;
+    margin-bottom: @padding-base-vertical;
+  }
+}
+.well{
+  @media print {
+    page-break-inside: avoid;
+  }
+  .wrapped-list{
+    li{
+      background-color: darken(@well-bg, 15%);
+    }
+  }
+}
+.print-only{
+  display: none;
+  @media print {
+    display: block;
+  }
+}
+.no-print{
+  @media print {
+    display: none;
+  }
+}
+.cv-section-head{
+  @media print {
+    page-break-after: avoid !important;
+  }
+}
+.cv-section{
+  @media print {
+    page-break-inside: avoid !important;
+  }
+}
+.force-new-page{
+  @media print {
+    page-break-before: always !important;
+  }
+}
+.youtube {
+  width: 95%;
+  height:100%;
+  min-height: 315px;
+}
