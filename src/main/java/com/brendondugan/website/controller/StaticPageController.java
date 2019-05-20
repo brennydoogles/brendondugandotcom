@@ -17,4 +17,9 @@ public class StaticPageController {
 	public String showAboutMePage(){
 		return "about-me";
 	}
+
+	@GetMapping(value = "/music")
+	public String showMusicPage(){
+		return "music";
+	}
 }
