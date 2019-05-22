@@ -26,4 +26,8 @@ public class StaticPageController {
 	public String showAboutSitePage(){
 		return "about-site";
 	}
+	@GetMapping(value="/cv")
+	public String showLegacyCVPage(){
+		return "legacy-cv";
+	}
 }
