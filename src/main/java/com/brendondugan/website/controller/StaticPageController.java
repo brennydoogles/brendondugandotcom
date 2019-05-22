@@ -22,4 +22,8 @@ public class StaticPageController {
 	public String showMusicPage(){
 		return "music";
 	}
+	@GetMapping(value = "/about/site")
+	public String showAboutSitePage(){
+		return "about-site";
+	}
 }
