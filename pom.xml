@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.brendondugan</groupId>
     <artifactId>website</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.2</version>
     <name>website</name>
     <description>The source code for www.brendondugan.com</description>
 
