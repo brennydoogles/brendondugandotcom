@@ -26,4 +26,8 @@
 ### VS Code ###
 .vscode/
 
+### Files related to SASS Compilation
+node_modules/
+.sass-cache/
+
 application-dev.properties
