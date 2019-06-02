@@ -1,0 +1,27 @@
+@import "../../scss/functions";
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900);
+
+
+$gray-100: #ffeeee;
+$gray-900: #332222;
+$gray-800: #443333;
+$gray-700: #554444;
+$gray-600: #665555;
+$gray-200: #eedddd;
+$gray-300: #ddcccc;
+$gray-400: #ccbbbb;
+$gray-500: #aa9999;
+$red: #b11f1d;
+$primary: #b11f1d;
+$secondary: lighten($primary, 15%);
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-hover-media-query: true;
+$enable-responsive-font-sizes: true;
+$font-family-sans-serif: Oswald;
+$font-family-monospace: Source Code Pro;

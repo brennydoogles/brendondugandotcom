@@ -1,0 +1,10 @@
+{
+  "name": "java-grunt",
+  "dependencies": {
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-watch": "latest",
+    "load-grunt-tasks": "latest"
+  }
+}
