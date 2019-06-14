@@ -26,4 +26,5 @@
 ### VS Code ###
 .vscode/
 
-application-dev.properties
+application-dev.yml
+.env

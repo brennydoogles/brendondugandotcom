@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet author="Brendon Dugan" id="add_footnote_table">
+        <createTable tableName="footnote">
+            <column name="id" autoIncrement="true" type="INT">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="text" type="VARCHAR(255)"/>
+            <column name="link_url" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Brendon Dugan" id="add_footnote_on_project_table">
+        <createTable tableName="footnote_on_project">
+            <column name="relationship_id" type="INT">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="project_id" type="INT"/>
+            <column name="footnote_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Brendon Dugan" id="add_notable_project_table">
+        <createTable tableName="notable_project">
+            <column name="id" autoIncrement="true" type="INT">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="work_experience_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Brendon Dugan" id="add_responsibility_table">
+        <createTable tableName="responsibility">
+            <column name="id" autoIncrement="true" type="INT">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="work_experience_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Brendon Dugan" id="add_skill_table">
+        <createTable tableName="skill">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="display_name" type="VARCHAR(45)">
+                <constraints unique="true"/>
+            </column>
+            <column name="skill_type" type="VARCHAR(45)"/>
+            <column name="familiarity" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Brendon Dugan" id="add_skill_used_at_job_table">
+        <createTable tableName="skill_used_at_job">
+            <column autoIncrement="true" name="relationship_id" type="INT">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="work_experience_id" type="INT"/>
+            <column name="skill_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Brendon Dugan" id="add_work_experience_table">
+        <createTable tableName="work_experience">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="company name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_date" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Brendon Dugan" id="add_foreign_key_constraints">
+        <addForeignKeyConstraint baseColumnNames="footnote_id" baseTableName="footnote_on_project"
+                                 constraintName="fk_fop_to_footnote" referencedColumnNames="id"
+                                 referencedTableName="footnote"/>
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="footnote_on_project"
+                                 constraintName="fk_fop_to_project" referencedColumnNames="id"
+                                 referencedTableName="notable_project"/>
+        <addForeignKeyConstraint baseColumnNames="work_experience_id" baseTableName="notable_project"
+                                 constraintName="fk_project_to_work" referencedColumnNames="id"
+                                 referencedTableName="work_experience"/>
+        <addForeignKeyConstraint baseColumnNames="skill_id" baseTableName="skill_used_at_job"
+                                 constraintName="rel_skill_to_work_skill_id" referencedColumnNames="id"
+                                 referencedTableName="skill"/>
+        <addForeignKeyConstraint baseColumnNames="work_experience_id" baseTableName="skill_used_at_job"
+                                 constraintName="rel_skill_to_work_work_id" referencedColumnNames="id"
+                                 referencedTableName="work_experience"/>
+        <addForeignKeyConstraint baseColumnNames="work_experience_id" baseTableName="responsibility"
+                                 constraintName="rel_resp_to_work_exp" referencedColumnNames="id"
+                                 referencedTableName="work_experience"/>
+    </changeSet>
+
+</databaseChangeLog>
