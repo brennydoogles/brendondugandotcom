@@ -13,17 +13,22 @@
             <column name="id" autoIncrement="true" type="INT">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="text" type="VARCHAR(255)"/>
-            <column name="link_url" type="VARCHAR(255)"/>
+            <column name="key" type="VARCHAR(20)" />
+            <column name="text" type="TEXT"/>
+            <column name="link_url" type="TEXT"/>
         </createTable>
     </changeSet>
     <changeSet author="Brendon Dugan" id="add_footnote_on_project_table">
         <createTable tableName="footnote_on_project">
-            <column name="relationship_id" type="INT">
+            <column name="relationship_id" autoIncrement="true" type="INT">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="project_id" type="INT"/>
-            <column name="footnote_id" type="INT"/>
+            <column name="project_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="footnote_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet author="Brendon Dugan" id="add_notable_project_table">
@@ -31,8 +36,15 @@
             <column name="id" autoIncrement="true" type="INT">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="description" type="VARCHAR(255)"/>
-            <column name="work_experience_id" type="INT"/>
+            <column name="key" type="VARCHAR(20)" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="work_experience_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet author="Brendon Dugan" id="add_responsibility_table">
@@ -40,8 +52,12 @@
             <column name="id" autoIncrement="true" type="INT">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="description" type="VARCHAR(255)"/>
-            <column name="work_experience_id" type="INT"/>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="work_experience_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet author="Brendon Dugan" id="add_skill_table">
@@ -50,10 +66,17 @@
                 <constraints primaryKey="true" unique="true"/>
             </column>
             <column name="display_name" type="VARCHAR(45)">
-                <constraints unique="true"/>
+                <constraints unique="true" nullable="false"/>
             </column>
-            <column name="skill_type" type="VARCHAR(45)"/>
-            <column name="familiarity" type="INT"/>
+            <column name="key" type="VARCHAR(20)" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="skill_type" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="familiarity" type="VARCHAR(45)">
+                <constraints nullable="false" />
+            </column>
         </createTable>
     </changeSet>
     <changeSet author="Brendon Dugan" id="add_skill_used_at_job_table">
@@ -61,8 +84,12 @@
             <column autoIncrement="true" name="relationship_id" type="INT">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="work_experience_id" type="INT"/>
-            <column name="skill_id" type="INT"/>
+            <column name="work_experience_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="skill_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet author="Brendon Dugan" id="add_work_experience_table">
@@ -70,16 +97,18 @@
             <column autoIncrement="true" name="id" type="INT">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="company name" type="VARCHAR(255)">
+            <column name="company_name" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="job_title" type="VARCHAR(255)">
+            <column name="job_title" type="TEXT">
                 <constraints nullable="false"/>
             </column>
             <column name="start_date" type="datetime">
                 <constraints nullable="false"/>
             </column>
-            <column name="end_date" type="datetime"/>
+            <column name="end_date" type="datetime">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet author="Brendon Dugan" id="add_foreign_key_constraints">
