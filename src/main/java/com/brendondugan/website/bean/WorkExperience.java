@@ -20,6 +20,8 @@ public class WorkExperience {
 	private int id;
 	@Column(name = "company_name")
 	private String companyName;
+	@Column(name = "key")
+	private String key;
 	@Column(name = "job_title")
 	private String jobTitle;
 	@Column(name = "start_date")

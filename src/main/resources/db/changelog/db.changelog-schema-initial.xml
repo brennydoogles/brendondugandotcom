@@ -13,7 +13,9 @@
             <column name="id" autoIncrement="true" type="INT">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="key" type="VARCHAR(20)" />
+            <column name="key" type="VARCHAR(20)" >
+                <constraints nullable="false" unique="true" />
+            </column>
             <column name="text" type="TEXT"/>
             <column name="link_url" type="TEXT"/>
         </createTable>
@@ -37,7 +39,7 @@
                 <constraints primaryKey="true" unique="true"/>
             </column>
             <column name="key" type="VARCHAR(20)" >
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true" />
             </column>
             <column name="description" type="TEXT">
                 <constraints nullable="false"/>
@@ -69,7 +71,7 @@
                 <constraints unique="true" nullable="false"/>
             </column>
             <column name="key" type="VARCHAR(20)" >
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true" />
             </column>
             <column name="skill_type" type="VARCHAR(45)">
                 <constraints nullable="false"/>
@@ -99,6 +101,9 @@
             </column>
             <column name="company_name" type="TEXT">
                 <constraints nullable="false"/>
+            </column>
+            <column name="key" type="VARCHAR(20)" >
+                <constraints nullable="false" unique="true" />
             </column>
             <column name="job_title" type="TEXT">
                 <constraints nullable="false"/>

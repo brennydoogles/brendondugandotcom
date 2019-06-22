@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="insert_initial_data_for_festiva" author="Brendon Dugan">
+        <insert tableName="work_experience">
+            <column name="company_name" value="Festiva Hospitality Group"/>
+            <column name="key" value="festiva" />
+            <column name="job_title" value="Web Developer"/>
+            <column name="start_date" value="2011-06-01"/>
+            <column name="end_date" value="2013-01-01"/>
+        </insert>
+        <!--<editor-fold desc="Skills">-->
+        <insert tableName="skill">
+            <column name="key" value="python"/>
+            <column name="display_name" value="Python"/>
+            <column name="skill_type" value="language"/>
+            <column name="familiarity" value="Familiar"/>
+        </insert>
+        <insert tableName="skill">
+            <column name="key" value="bash"/>
+            <column name="display_name" value="BASH"/>
+            <column name="skill_type" value="language"/>
+            <column name="familiarity" value="Proficient"/>
+        </insert>
+        <insert tableName="skill">
+            <column name="key" value="idea"/>
+            <column name="display_name" value="IntelliJ Idea"/>
+            <column name="skill_type" value="tool"/>
+            <column name="familiarity" value="Proficient"/>
+        </insert>
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Skills Used at Job">-->
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'php')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'csharp')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'sql')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'html')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'css')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'js')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'python')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'bash')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'idea')"
+            />
+        </insert>
+        <!--</editor-fold>-->
+
+        <!--<editor-fold desc="Responsibilities">-->
+        <insert tableName="responsibility">
+            <column name="description" value="Design and implement robust server-side web applications"/>
+            <column
+                name="work_experience_id"
+                valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+        </insert>
+        <insert tableName="responsibility">
+            <column name="description" value="Optimize team workflow using advanced source control solutions"/>
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+        </insert>
+        <insert tableName="responsibility">
+            <column name="description" value="Use Linux/Apache knowledge to automate repetitive server tasks"/>
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+        </insert>
+        <insert tableName="responsibility">
+            <column name="description" value="Plan data models for complex systems to maximize efficiency"/>
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+        </insert>
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Projects">-->
+        <insert tableName="notable_project">
+            <column name="description" value="Designed a system which allowed for efficient traversal and storage of a hierarchical data tree in a relational database using a hybrid of the Nested Set and Adjacency List data models in order to create a system in which location based hotel listings could be retrieved with a degree of granularity limited only by the data in the database"/>
+            <column name="key" value="rtx_db"/>
+            <column
+                name="work_experience_id"
+                valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+        </insert>
+        <insert tableName="notable_project">
+            <column name="description" value="Established a source control policy and procedure for the web team where previously no source control solution was used"/>
+            <column name="key" value="festiva_scm"/>
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+        </insert>
+        <insert tableName="notable_project">
+            <column name="description" value="Further optimized the web team workflow by creating automated deployment into a development environment from all source control commits"/>
+            <column name="key" value="festiva_scm_deploy"/>
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'festiva')"
+            />
+        </insert>
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Footnotes">-->
+
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Footnotes on Projects">-->
+
+        <!--</editor-fold>-->
+    </changeSet>
+
+</databaseChangeLog>
