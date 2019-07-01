@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="insert_initial_data_for_eloquence_position" author="Brendon Dugan">
+        <insert tableName="work_experience">
+            <column name="company_name" value="Eloquence Communications"/>
+            <column name="key" value="eloquence" />
+            <column name="job_title" value="Lead Developer"/>
+            <column name="start_date" value="2013-01-01"/>
+            <column name="end_date" value="2014-02-01"/>
+        </insert>
+        <!--<editor-fold desc="Skills">-->
+        <insert tableName="skill">
+            <column name="key" value="java"/>
+            <column name="display_name" value="Java"/>
+            <column name="skill_type" value="language"/>
+            <column name="familiarity" value="Proficient"/>
+        </insert>
+        <insert tableName="skill">
+            <column name="key" value="bamboo"/>
+            <column name="display_name" value="Atlassian Bamboo"/>
+            <column name="skill_type" value="tool"/>
+            <column name="familiarity" value="Proficient"/>
+        </insert>
+        <insert tableName="skill">
+            <column name="key" value="nexus"/>
+            <column name="display_name" value="Sonatype Nexus"/>
+            <column name="skill_type" value="tool"/>
+            <column name="familiarity" value="Proficient"/>
+        </insert>
+        <insert tableName="skill">
+            <column name="key" value="maven"/>
+            <column name="display_name" value="Maven"/>
+            <column name="skill_type" value="tool"/>
+            <column name="familiarity" value="Proficient"/>
+        </insert>
+        <insert tableName="skill">
+            <column name="key" value="git"/>
+            <column name="display_name" value="Git"/>
+            <column name="skill_type" value="tool"/>
+            <column name="familiarity" value="Proficient"/>
+        </insert>
+        <insert tableName="skill">
+            <column name="key" value="javafx"/>
+            <column name="display_name" value="JavaFX"/>
+            <column name="skill_type" value="language"/>
+            <column name="familiarity" value="Familiar"/>
+        </insert>
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Skills Used at Job">-->
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'java')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'sql')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'idea')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'bamboo')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'nexus')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'maven')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'git')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'javafx')"
+            />
+        </insert>
+        <insert tableName="skill_used_at_job">
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+            <column
+                    name="skill_id"
+                    valueComputed="(select id from website.skill where website.skill.key = 'python')"
+            />
+        </insert>
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Responsibilities">-->
+        <insert tableName="responsibility">
+            <column name="description" value="Managed complex build process for multiple Java applications using Git, Maven, Nexus, and Bamboo"/>
+            <column
+                name="work_experience_id"
+                valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+        </insert>
+        <insert tableName="responsibility">
+            <column name="description" value="Designed overall architecture for hospital Nurse Call System"/>
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+        </insert>
+        <insert tableName="responsibility">
+            <column name="description" value="Identified external consultant for and managed delivery of customization of third-party NFC library"/>
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+        </insert>
+        <insert tableName="responsibility">
+            <column name="description" value="Lead a small team of developers to convert an idea into a product"/>
+            <column
+                    name="work_experience_id"
+                    valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+        </insert>
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Projects">-->
+        <insert tableName="notable_project">
+            <column name="description" value="After proposing a method of nursing staff tracking and authentication using NFC, was named as an inventor on patent application"/>
+            <column name="key" value="eloquence_nfc"/>
+            <column
+                name="work_experience_id"
+                valueComputed="(select id from website.work_experience where website.work_experience.key = 'eloquence')"
+            />
+        </insert>
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Footnotes">-->
+        <insert tableName="footnote">
+            <column name="key" value="elq_patent_link"/>
+            <column name="text" value="Patent Application #20140330575"/>
+            <column name="link_url" value="http://patents.justia.com/patent/20140330575"/>
+        </insert>
+        <!--</editor-fold>-->
+        <!--<editor-fold desc="Footnotes On Projects">-->
+        <insert tableName="footnote_on_project">
+            <column
+                name="project_id"
+                valueComputed="(select id from website.notable_project where website.notable_project.key = 'eloquence_nfc')"
+            />
+            <column
+                name="footnote_id"
+                valueComputed="(select id from website.footnote where website.footnote.key = 'elq_patent_link')"
+            />
+        </insert>
+        <!--</editor-fold>-->
+    </changeSet>
+
+</databaseChangeLog>

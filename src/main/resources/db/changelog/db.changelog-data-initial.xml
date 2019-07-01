@@ -10,5 +10,6 @@
 
     <include file="db.changelog-data-freelance.xml" relativeToChangelogFile="true" />
     <include file="db.changelog-data-festiva.xml" relativeToChangelogFile="true" />
+    <include file="db.changelog-data-eloquence.xml" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
