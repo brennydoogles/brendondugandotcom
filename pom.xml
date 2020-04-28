@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.brendondugan</groupId>
     <artifactId>website</artifactId>
-    <version>2.0.3-SNAPSHOT</version>
+    <version>2.0.4</version>
     <name>website</name>
     <description>The source code for www.brendondugan.com</description>
 
@@ -50,10 +50,10 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-devtools</artifactId>-->
+<!--        </dependency>-->
 
         <!-- Database Dependencies, Commented out until I'm ready to configure them for Heroku/Dev -->
 <!--        <dependency>-->
